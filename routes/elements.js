@@ -1,11 +1,10 @@
 import { Router } from 'express'
+import * as elementsCtrl from '../controllers/elements.js'
 
 const router = Router()
 
 /* GET users listing. */
-router.get('/', function(req, res) {
-  res.send('respond with a resource')
-})
+router.get('/', elementsCtrl.index)
 
 export {
   router

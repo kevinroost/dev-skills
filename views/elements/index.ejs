@@ -11,11 +11,12 @@
   <ul>
     <% elements.forEach(element => { %>
         <li>
-          <%= element.fullName %>
+          <a href="/elements/<%= element.abbr %>"><%= element.fullName %></a>
           AKA
           <%= element.abbr %>
         </li>
     <% }) %>
   </ul>
+  <a href="/elements/new">Add New Element</a>
 </body>
 </html>

@@ -1,8 +1,15 @@
-import {elements} from '../data/element-data.js'
+import { Element } from '../models/element.js'
 
 function index(req, res) {
-  res.render('elements', {
-    elements: elements
+  Element.find({})
+  .then(elements => {
+    res.render('elements', {
+      elements: elements
+    })
+  })
+  .catch(error => {
+    console.log(error);
+    res.redirect('/')
   })
 }
 

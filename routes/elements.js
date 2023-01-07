@@ -12,6 +12,8 @@ router.get('/:abbr', elementsCtrl.show)
 
 router.post('/', elementsCtrl.create)
 
+router.delete('/:abbr', elementsCtrl.delete)
+
 export {
   router
 }

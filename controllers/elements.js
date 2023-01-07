@@ -43,9 +43,21 @@ function create(req, res) {
   })
 }
 
+function deleteElement(req, res) {
+  Element.findOneAndDelete({abbr: req.params.abbr})
+  .then(element => {
+    res.redirect('/elements')
+  })
+  .catch(error => {
+    console.log(error);
+    res.redirect('/elements')
+  })
+}
+
 export {
   index,
   newElement as new,
   create,
   show,
+  deleteElement as delete,
 }

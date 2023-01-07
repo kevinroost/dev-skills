@@ -6,17 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> The Elements </title>
 </head>
-<body>
-  <h1>List of Elements</h1>
-  <ul>
-    <% elements.forEach(element => { %>
-        <li>
-          <a href="/elements/<%= element.abbr %>"><%= element.fullName %></a>
-          AKA
-          <%= element.abbr %>
-        </li>
-    <% }) %>
-  </ul>
-  <a href="/elements/new">Add New Element</a>
-</body>
+  <body>
+    <h1>List of Elements</h1>
+    <ul>
+      <% elements.forEach(element => { %>
+          <li>
+            <form action="/elements/<%= element.abbr %>?_method=DELETE" method="POST" class="delete-form">
+              <button type="submit">X</button>
+            </form>
+            <a href="/elements/<%= element.abbr %>"><%= element.fullName %></a>
+            AKA
+            <%= element.abbr %>
+          </li>
+      <% }) %>
+    </ul>
+    <a href="/elements/new">Add New Element</a>
+  </body>
 </html>

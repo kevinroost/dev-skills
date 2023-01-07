@@ -19,6 +19,7 @@ function newElement(req, res) {
 }
 
 function show(req, res) {
+  console.log(req.params.abbr);
   Element.find({abbr: req.params.abbr})
   .then(element => {
     res.render('elements/show', {
@@ -44,9 +45,22 @@ function create(req, res) {
 }
 
 function deleteElement(req, res) {
-  Element.findOneAndDelete({abbr: req.params.abbr})
+  console.log(req.params);
+  Element.findByIdAndDelete(req.params.id)
   .then(element => {
     res.redirect('/elements')
+  })
+  .catch(error => {
+    console.log(error);
+    res.redirect('/elements')
+  })
+}
+
+function edit(req, res) {
+  console.log('edit works');
+  Element.findById(req.params.id)
+  .then(element => {
+    res.render(`elements/edit`)
   })
   .catch(error => {
     console.log(error);
@@ -60,4 +74,5 @@ export {
   create,
   show,
   deleteElement as delete,
+  edit,
 }

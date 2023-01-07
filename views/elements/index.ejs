@@ -12,7 +12,7 @@
     <ul>
       <% elements.forEach(element => { %>
           <li>
-            <form action="/elements/<%= element.abbr %>?_method=DELETE" method="POST" class="delete-form">
+            <form action="/elements/<%= element._id %>?_method=DELETE" method="POST" class="delete-form">
               <button type="submit">X</button>
             </form>
             <a href="/elements/<%= element.abbr %>"><%= element.fullName %></a>

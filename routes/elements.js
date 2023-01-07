@@ -10,9 +10,11 @@ router.get('/new', elementsCtrl.new)
 
 router.get('/:abbr', elementsCtrl.show)
 
+router.get('/:id/edit', elementsCtrl.edit)
+
 router.post('/', elementsCtrl.create)
 
-router.delete('/:abbr', elementsCtrl.delete)
+router.delete('/:id', elementsCtrl.delete)
 
 export {
   router

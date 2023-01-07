@@ -7,6 +7,12 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>hello world</h1>
+  <form action="/elements/<%= element.id %>?_method=PUT" method="POST" autocomplete="off">
+    <input value="<%= element.fullName %>" type="text" name="fullName" placeholder="What Element?">
+    <input value="<%= element.abbr %>" type="text" name="abbr" placeholder="Abbreviation?">
+    <input value="<%= element.weight %>" type="text" name="weight" placeholder="Atomic Weight?">
+    <input value="<%= element.number %>" type="text" name="number" placeholder="Atomic Number?">
+    <button type="submit">UPDATE!</button>
+  </form>
 </body>
 </html>

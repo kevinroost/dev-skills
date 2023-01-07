@@ -60,7 +60,21 @@ function edit(req, res) {
   console.log('edit works');
   Element.findById(req.params.id)
   .then(element => {
-    res.render(`elements/edit`)
+    res.render(`elements/edit`, {
+    element: element
+    })
+  })
+  .catch(error => {
+    console.log(error);
+    res.redirect('/elements')
+  })
+}
+
+function update(req, res) {
+  console.log('update works!');
+  Element.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(element => {
+    res.redirect('/elements')
   })
   .catch(error => {
     console.log(error);
@@ -75,4 +89,5 @@ export {
   show,
   deleteElement as delete,
   edit,
+  update,
 }

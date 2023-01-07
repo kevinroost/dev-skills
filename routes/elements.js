@@ -14,6 +14,8 @@ router.get('/:id/edit', elementsCtrl.edit)
 
 router.post('/', elementsCtrl.create)
 
+router.put('/:id', elementsCtrl.update)
+
 router.delete('/:id', elementsCtrl.delete)
 
 export {
